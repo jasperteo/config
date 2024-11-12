@@ -30,7 +30,7 @@ Collection of settings and instructions to set up a new **macOS** machine
    fisher install IlanCosman/tide@v6
    ```
 
-   ```sh
+   ```fish
    set --universal tide_node_icon "󰎙"
    set --universal tide_cmd_duration_threshold 0
    ```
