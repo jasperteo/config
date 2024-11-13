@@ -6,13 +6,13 @@ Collection of settings and instructions to set up a new **macOS** machine
 
 ## Setting up
 
-### Set up [Homebrew](https://brew.sh) as package manager
+### <img src="https://cdn.svgporn.com/logos/homebrew.svg" align=left height="24" alt="homebrew" /> Set up [Homebrew](https://brew.sh) as package manager
 
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### Install [Tabby](https://tabby.sh) and [Fish](https://fishshell.com), and download SF Mono and JetBrainsMono Nerd Font
+### <img src="https://cdn.simpleicons.org/fishshell" align=left height="24" alt="fish-shell" /> Install [Tabby](https://tabby.sh) and [Fish](https://fishshell.com), and download JetBrainsMono Nerd Font and SF Mono
 
 ```sh
 brew install tabby fish font-jetbrains-mono-nerd-font font-sf-mono
@@ -37,7 +37,7 @@ set --universal tide_cmd_duration_threshold 0
 
 ## Tools configs
 
-### [Node](https://nodejs.org) Environment
+### <img src="https://cdn.svgporn.com/logos/nodejs-icon.svg" align=left height="24" alt="node-js" /> [Node](https://nodejs.org) Environment
 
 #### Install [nvm.fish](https://github.com/jorgebucaran/nvm.fish) with [Fisher](https://github.com/jorgebucaran/fisher)
 
@@ -60,7 +60,7 @@ nvm install lts/jod
 set --universal nvm_default_version latest
 ```
 
-### Visual Studio Code (`settings.json`)
+### <img src="https://cdn.svgporn.com/logos/visual-studio-code.svg" align=left height="24" alt="visual-studio-code" /> Visual Studio Code (`settings.json`)
 
 <details>
 
@@ -433,7 +433,7 @@ pluginBlacklist: []
 
 ## Project configs
 
-### Prettier (`prettier.config.js`)
+### <img src="https://cdn.simpleicons.org/prettier" align=left height="24" alt="prettier" /> Prettier (`prettier.config.js`)
 
 <details>
 
