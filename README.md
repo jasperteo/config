@@ -6,36 +6,59 @@ Collection of settings and instructions to set up a new **macOS** machine
 
 ## Setting up
 
-1. Set up [Homebrew](https://brew.sh) as package manager
+### Set up [Homebrew](https://brew.sh) as package manager
 
-   ```sh
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 
-2. Install [Tabby](https://tabby.sh) and [Fish](https://fishshell.com), and download SF Mono and JetBrainsMono Nerd Font
+### Install [Tabby](https://tabby.sh) and [Fish](https://fishshell.com), and download SF Mono and JetBrainsMono Nerd Font
 
-   ```sh
-   brew install tabby fish font-jetbrains-mono-nerd-font font-sf-mono
-   ```
+```sh
+brew install tabby fish font-jetbrains-mono-nerd-font font-sf-mono
+```
 
-3. Set up [Fisher](https://github.com/jorgebucaran/fisher) as plugin manager for Fish
+### Set up [Fisher](https://github.com/jorgebucaran/fisher) as plugin manager for Fish
 
-   ```sh
-   curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-   ```
+```sh
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+```
 
-4. Install [Tide](https://github.com/IlanCosman/tide) as Shell Prompt, then set up
+### Install [Tide](https://github.com/IlanCosman/tide) as shell prompt with [Fisher](https://github.com/jorgebucaran/fisher), then set up
 
-   ```sh
-   fisher install IlanCosman/tide@v6
-   ```
+```sh
+fisher install IlanCosman/tide@v6
+```
 
-   ```fish
-   set --universal tide_node_icon "󰎙"
-   set --universal tide_cmd_duration_threshold 0
-   ```
+```fish
+set --universal tide_node_icon "󰎙"
+set --universal tide_cmd_duration_threshold 0
+```
 
 ## Tools configs
+
+### [Node](https://nodejs.org) Environment
+
+#### Install [nvm.fish](https://github.com/jorgebucaran/nvm.fish) with [Fisher](https://github.com/jorgebucaran/fisher)
+
+```sh
+fisher install jorgebucaran/nvm.fish
+```
+
+#### Install Node versions
+
+```sh
+# Current
+nvm install latest
+# LTS
+nvm install lts/jod
+```
+
+#### Set a default version for new instances
+
+```fish
+set --universal nvm_default_version latest
+```
 
 ### Visual Studio Code (`settings.json`)
 
@@ -376,6 +399,7 @@ appearance:
   spaciness: 1
   colorSchemeMode: dark
   vibrancy: true
+  opacity: 0.9
 profiles: []
 groups: []
 profileDefaults:
