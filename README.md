@@ -54,10 +54,58 @@ nvm install latest
 nvm install lts/jod
 ```
 
-#### Set a default version for new instances
+#### Set a default version
 
 ```fish
 set --universal nvm_default_version latest
+```
+
+### <img src="https://cdn.svgporn.com/logos/python.svg" align=left height="24" alt="python" /> [Python](https://www.python.org) Environment
+
+#### Install [pyenv](https://github.com/pyenv/pyenv)
+
+```sh
+brew install pyenv
+```
+
+#### Install Python versions
+
+```sh
+# Current
+pyenv install 3.13.0
+```
+
+#### Set version
+
+```sh
+# Global
+pyenv global 3.13.0
+# Project Specific
+pyenv local 3.13.0
+```
+
+### <img src="https://cdn.svgporn.com/logos/ruby.svg" align=left height="24" alt="python" /> [Ruby](https://www.ruby-lang.org) Environment
+
+#### Install [rbenv](https://github.com/rbenv/rbenv)
+
+```sh
+brew install rbenv
+```
+
+#### Install Ruby versions
+
+```sh
+# Current
+rbrnv install 3.3.6
+```
+
+#### Set version
+
+```sh
+# Global
+rbenv global 3.3.6
+# Project Specific
+rbenv local 3.3.6
 ```
 
 ### <img src="https://cdn.svgporn.com/logos/visual-studio-code.svg" align=left height="24" alt="visual-studio-code" /> Visual Studio Code (`settings.json`)
