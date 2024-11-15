@@ -24,7 +24,7 @@ brew install tabby fish font-jetbrains-mono-nerd-font font-sf-mono
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 ```
 
-### Install [Tide](https://github.com/IlanCosman/tide) as shell prompt with [Fisher](https://github.com/jorgebucaran/fisher), then set up
+### Install [Tide](https://github.com/IlanCosman/tide) as shell prompt with [Fisher](https://github.com/jorgebucaran/fisher)
 
 ```sh
 fisher install IlanCosman/tide@v6
@@ -68,20 +68,33 @@ set --universal nvm_default_version latest
 brew install pyenv
 ```
 
+#### Set up shell environment
+
+```fish
+set --universal --export PYENV_ROOT $HOME/.pyenv
+fish_add_path $PYENV_ROOT/bin
+```
+
+Add to `~/.config/fish/config.fish`
+
+```fish
+pyenv init - | source
+```
+
 #### Install Python versions
 
 ```sh
 # Current
-pyenv install 3.13.0
+pyenv install 3.13-dev
 ```
 
-#### Set version
+#### Set Python version
 
 ```sh
 # Global
-pyenv global 3.13.0
+pyenv global 3.13-dev
 # Project Specific
-pyenv local 3.13.0
+pyenv local 3.13-dev
 ```
 
 ### <img src="https://cdn.svgporn.com/logos/ruby.svg" align=left height="24" alt="python" /> [Ruby](https://www.ruby-lang.org) Environment
@@ -96,16 +109,16 @@ brew install rbenv
 
 ```sh
 # Current
-rbrnv install 3.3.6
+rbrnv install 3.3-dev
 ```
 
-#### Set version
+#### Set Ruby version
 
 ```sh
 # Global
-rbenv global 3.3.6
+rbenv global 3.3-dev
 # Project Specific
-rbenv local 3.3.6
+rbenv local 3.3-dev
 ```
 
 ### <img src="https://cdn.svgporn.com/logos/visual-studio-code.svg" align=left height="24" alt="visual-studio-code" /> Visual Studio Code (`settings.json`)
