@@ -35,7 +35,7 @@ set -U tide_node_icon "󰎙"
 set -U tide_cmd_duration_threshold 0
 ```
 
-### Install [Visual Studio Code](https://code.visualstudio.com) and git
+### Install [Visual Studio Code](https://code.visualstudio.com) and [Git](https://git-scm.com)
 
 ```sh
 brew install visual-studio-code git
@@ -69,7 +69,7 @@ nvm install latest
 nvm install lts/jod
 ```
 
-#### Set a default version
+#### Set a default Node version
 
 ```fish
 set -U nvm_default_version latest
