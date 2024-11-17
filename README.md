@@ -100,14 +100,14 @@ pyenv init - | source
 #### Install Python versions
 
 ```sh
-# Current
+# Example
 pyenv install 3.13-dev
 ```
 
 #### Set Python version
 
 ```sh
-# Global
+# Set Global Default
 pyenv global 3.13-dev
 # Project Specific
 pyenv local 3.13-dev
@@ -127,17 +127,32 @@ brew install rbenv
 #### Install Ruby versions
 
 ```sh
-# Current
+# Example
 rbrnv install 3.3-dev
 ```
 
 #### Set Ruby version
 
 ```sh
-# Global
+# Set Global Default
 rbenv global 3.3-dev
 # Project Specific
 rbenv local 3.3-dev
+```
+
+#### Install Cocoapods
+
+```sh
+gem install cocoapods
+```
+
+### <img src="https://cdn.svgporn.com/logos/rust.svg" align=left height="24" alt="rust" /> [Rust](https://www.rust-lang.org) Environment
+
+#### Install [rustup](https://github.com/rust-lang/rustup)
+
+```sh
+brew install rustup
+rustup default stable
 ```
 
 ### <img src="https://cdn.svgporn.com/logos/react.svg" align=left height="24" alt="react" icon="react" /> [React Native](https://reactnative.dev) Environment
@@ -151,14 +166,80 @@ rbenv local 3.3-dev
 brew install watchman zulu@17 android-studio
 ```
 
+#### Set up Android Studio for React Native Development
+
+Use the SDK Manager in Android Studio to install the following SDK Tools:
+
+- Android SDK Platform
+- Android SDK Platform-Tools
+- Android SDK Build-Tools
+- Android Emulator
+
 > [!IMPORTANT]
 > Add to `~/.config/fish/config.fish`
 
 ```fish
-set -x JAVA_HOME /Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+set -x JAVA_HOME_REACT_NATIVE /Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 set -x ANDROID_HOME $HOME/Library/Android/sdk
 set -x PATH $PATH $ANDROID_HOME/emulator
 set -x PATH $PATH $ANDROID_HOME/platform-tools
+```
+
+> [!WARNING]
+> Verify the path of `ANDROID_HOME` is correct
+
+#### Set `JAVA_HOME` environment variable for React Native
+
+```fish
+set -x JAVA_HOME $JAVA_HOME_REACT_NATIVE
+```
+
+### <img src="https://cdn.svgporn.com/logos/tauri.svg" align=left height="24" alt="react" icon="react" /> [Tauri](https://tauri.app/) Environment
+
+#### Install [Xcode](https://developer.apple.com/xcode) and [Android Studio](https://developer.android.com/studio)
+
+> [!NOTE]
+> Use App Store to install **Xcode**
+
+```sh
+brew install android-studio
+```
+
+#### Set up Android Studio for Tauri Development
+
+Use the SDK Manager in Android Studio to install the following SDK Tools:
+
+- Android SDK Platform
+- Android SDK Platform-Tools
+- Android SDK Build-Tools
+- Android SDK Command-line Tools
+- NDK (Side by side)
+
+> [!IMPORTANT]
+> Add to `~/.config/fish/config.fish`
+
+```fish
+set -x JAVA_HOME_TAURI "/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+set -x ANDROID_HOME "$HOME/Library/Android/sdk"
+set -x NDK_HOME "$ANDROID_HOME/ndk/(ls -1 $ANDROID_HOME/ndk)"
+```
+
+> [!WARNING]
+> Verify the path of `ANDROID_HOME` is correct
+
+#### Set `JAVA_HOME` environment variable for Tauri
+
+```fish
+set -x JAVA_HOME $JAVA_HOME_TAURI
+```
+
+#### Add Android and iOS targets
+
+```sh
+# Android
+rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android
+# iOS
+rustup target add aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim
 ```
 
 ## Tools configs
