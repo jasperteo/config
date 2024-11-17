@@ -6,16 +6,16 @@ Collection of settings and instructions to set up a new **macOS** machine
 
 ## Setting up
 
-### <img src="https://cdn.svgporn.com/logos/homebrew.svg" align=left height="24" alt="homebrew" /> Set up [Homebrew](https://brew.sh) as package manager
+### Set up [Homebrew](https://brew.sh) as package manager
 
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### <img src="https://cdn.simpleicons.org/fishshell" align=left height="24" alt="fish-shell" /> Install [Tabby](https://tabby.sh) and [Fish](https://fishshell.com), and download JetBrainsMono Nerd Font and SF Mono
+### Install [Fish](https://fishshell.com) and [Tabby](https://tabby.sh), then download JetBrainsMono Nerd Font and SF Mono
 
 ```sh
-brew install tabby fish font-jetbrains-mono-nerd-font font-sf-mono
+brew install fish tabby font-sf-mono font-jetbrains-mono-nerd-font
 ```
 
 ### Set up [Fisher](https://github.com/jorgebucaran/fisher) as plugin manager for Fish
@@ -31,11 +31,26 @@ fisher install IlanCosman/tide@v6
 ```
 
 ```fish
-set --universal tide_node_icon "󰎙"
-set --universal tide_cmd_duration_threshold 0
+set -U tide_node_icon "󰎙"
+set -U tide_cmd_duration_threshold 0
 ```
 
-## Tools configs
+### Install [Visual Studio Code](https://code.visualstudio.com) and git
+
+```sh
+brew install visual-studio-code git
+git config --global user.name "jasperteo"
+git config --global user.email "jaspertzj@outlook.sg"
+```
+
+### Install other software
+
+```sh
+brew install 1password microsoft-edge@dev firefox@developer-edition telegram raycast macs-fan-control rectangle keka cloudflare-warp iina
+brew install kekaexternalhelper
+```
+
+## Environment configs
 
 ### <img src="https://cdn.svgporn.com/logos/nodejs-icon.svg" align=left height="24" alt="node-js" /> [Node](https://nodejs.org) Environment
 
@@ -57,7 +72,7 @@ nvm install lts/jod
 #### Set a default version
 
 ```fish
-set --universal nvm_default_version latest
+set -U nvm_default_version latest
 ```
 
 ### <img src="https://cdn.svgporn.com/logos/python.svg" align=left height="24" alt="python" /> [Python](https://www.python.org) Environment
@@ -71,7 +86,7 @@ brew install pyenv
 #### Set up shell environment
 
 ```fish
-set --universal --export PYENV_ROOT $HOME/.pyenv
+set -Ux PYENV_ROOT $HOME/.pyenv
 fish_add_path $PYENV_ROOT/bin
 ```
 
@@ -95,9 +110,12 @@ pyenv install 3.13-dev
 pyenv global 3.13-dev
 # Project Specific
 pyenv local 3.13-dev
+# Virtual Environment
+python3 -m venv .venv
+source .venv/bin/activate.fish
 ```
 
-### <img src="https://cdn.svgporn.com/logos/ruby.svg" align=left height="24" alt="python" /> [Ruby](https://www.ruby-lang.org) Environment
+### <img src="https://cdn.svgporn.com/logos/ruby.svg" align=left height="24" alt="ruby" /> [Ruby](https://www.ruby-lang.org) Environment
 
 #### Install [rbenv](https://github.com/rbenv/rbenv)
 
@@ -120,6 +138,28 @@ rbenv global 3.3-dev
 # Project Specific
 rbenv local 3.3-dev
 ```
+
+### <img src="https://cdn.svgporn.com/logos/react.svg" align=left height="24" alt="react" icon="react" /> [React Native](https://reactnative.dev) Environment
+
+#### Install [Xcode](https://developer.apple.com/xcode), [Android Studio](https://developer.android.com/studio), [Watchman](https://github.com/facebook/watchman) and Azul Zulu Java
+
+> [!NOTE]
+> Use App Store to install **Xcode**
+
+```sh
+brew install watchman zulu@17 android-studio
+```
+
+Add to `~/.config/fish/config.fish`
+
+```fish
+set -x JAVA_HOME /Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+set -x ANDROID_HOME $HOME/Library/Android/sdk
+set -x PATH $PATH $ANDROID_HOME/emulator
+set -x PATH $PATH $ANDROID_HOME/platform-tools
+```
+
+## Tools configs
 
 ### <img src="https://cdn.svgporn.com/logos/visual-studio-code.svg" align=left height="24" alt="visual-studio-code" /> Visual Studio Code (`settings.json`)
 
@@ -148,14 +188,15 @@ rbenv local 3.3-dev
   "files.associations": {
     "*.css": "tailwindcss"
   },
+  "database-client.autoSync": true,
+  "totalTypeScript.hideBasicTips": true,
   "javascript.experimental.updateImportsOnPaste": true,
   "typescript.experimental.updateImportsOnPaste": true,
   "typescript.preferences.preferTypeOnlyAutoImports": true,
   "telemetry.telemetryLevel": "error",
   "database-client.telemetry.usesOnlineServices": false,
   "gitlens.telemetry.enabled": false,
-  "postman.telemetry.enabled": false,
-  "totalTypeScript.hideBasicTips": true
+  "postman.telemetry.enabled": false
 }
 ```
 
