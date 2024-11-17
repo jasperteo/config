@@ -46,7 +46,7 @@ git config --global user.email "jaspertzj@outlook.sg"
 ### Install other software
 
 ```sh
-brew install 1password microsoft-edge@dev firefox@developer-edition telegram raycast macs-fan-control rectangle keka cloudflare-warp iina
+brew install 1password microsoft-edge@dev firefox@developer-edition raycast macs-fan-control rectangle keka cloudflare-warp iina
 brew install kekaexternalhelper
 ```
 
@@ -90,7 +90,8 @@ set -Ux PYENV_ROOT $HOME/.pyenv
 fish_add_path $PYENV_ROOT/bin
 ```
 
-Add to `~/.config/fish/config.fish`
+> [!IMPORTANT]
+> Add to `~/.config/fish/config.fish`
 
 ```fish
 pyenv init - | source
@@ -150,7 +151,8 @@ rbenv local 3.3-dev
 brew install watchman zulu@17 android-studio
 ```
 
-Add to `~/.config/fish/config.fish`
+> [!IMPORTANT]
+> Add to `~/.config/fish/config.fish`
 
 ```fish
 set -x JAVA_HOME /Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
