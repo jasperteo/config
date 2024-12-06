@@ -46,7 +46,7 @@ git config --global user.email "jaspertzj@outlook.sg"
 ### Install other software
 
 ```sh
-brew install 1password microsoft-edge@dev firefox@developer-edition raycast macs-fan-control rectangle keka cloudflare-warp iina
+brew install 1password microsoft-edge@dev firefox@developer-edition raycast macs-fan-control rectangle keka cloudflare-warp iina fastfetch btop
 brew install kekaexternalhelper
 ```
 
@@ -637,6 +637,52 @@ const prettierConfig = {
 };
 
 export default prettierConfig;
+```
+
+</details>
+
+<details>
+
+```js
+import { FlatCompat } from "@eslint/eslintrc";
+import eslint from "@eslint/js";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
+import eslintPluginUnicorn from "eslint-plugin-unicorn";
+import tseslint from "typescript-eslint";
+
+// for legacy configs
+const compat = new FlatCompat({
+  baseDirectory: import.meta.dirname,
+  resolvePluginsRelativeTo: import.meta.dirname,
+});
+
+const eslintConfig = tseslint.config(
+  tseslint.configs.strictTypeChecked,
+  tseslint.configs.stylisticTypeChecked,
+  eslintPluginUnicorn.configs["flat/recommended"],
+  ...pluginQuery.configs["flat/recommended"],
+  {
+    plugins: {
+      "simple-import-sort": simpleImportSort,
+    },
+    rules: {
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+      "@typescript-eslint/consistent-type-imports": "error",
+      "@typescript-eslint/consistent-type-exports": "error",
+      "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+      "unicorn/better-regex": "warn",
+    },
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  }
+);
+
+export default eslintConfig;
 ```
 
 </details>
