@@ -618,7 +618,7 @@ pluginBlacklist: []
 
 ## Project configs
 
-### <img src="https://cdn.simpleicons.org/prettier" align=left height="24" alt="prettier" /> Prettier (`prettier.config.js`)
+### <img src="https://cdn.svgporn.com/logos/prettier.svg" align=left height="24" alt="prettier" /> Prettier (`prettier.config.js`)
 
 <details>
 
@@ -641,6 +641,8 @@ export default prettierConfig;
 
 </details>
 
+### <img src="https://cdn.svgporn.com/logos/eslint.svg" align=left height="24" alt="eslint" /> ESLint (`eslint.config.js`)
+
 <details>
 
 ```js
@@ -651,20 +653,15 @@ import eslintPluginUnicorn from "eslint-plugin-unicorn";
 import tseslint from "typescript-eslint";
 
 // for legacy configs
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-  resolvePluginsRelativeTo: import.meta.dirname,
-});
+const compat = new FlatCompat({ baseDirectory: import.meta.dirname });
 
 const eslintConfig = tseslint.config(
+  eslint.configs.recommended,
   tseslint.configs.strictTypeChecked,
   tseslint.configs.stylisticTypeChecked,
   eslintPluginUnicorn.configs["flat/recommended"],
-  ...pluginQuery.configs["flat/recommended"],
   {
-    plugins: {
-      "simple-import-sort": simpleImportSort,
-    },
+    plugins: { "simple-import-sort": simpleImportSort },
     rules: {
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
