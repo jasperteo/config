@@ -256,7 +256,7 @@ rustup target add aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim
 
 <details>
 
-```json
+```jsonc
 {
   "workbench.colorTheme": "Default Dark Modern",
   "workbench.iconTheme": "catppuccin-mocha",
