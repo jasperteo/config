@@ -12,10 +12,10 @@ Collection of settings and instructions to set up a new **macOS** machine
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### Install [Fish](https://fishshell.com) and [Tabby](https://tabby.sh), then download JetBrainsMono Nerd Font and SF Mono
+### Install [Fish](https://fishshell.com) and [Ghostty](https://ghostty.org/), then download SF Mono
 
 ```sh
-brew install fish tabby font-sf-mono font-jetbrains-mono-nerd-font
+brew install fish ghostty font-sf-mono
 ```
 
 ### Set up [Fisher](https://github.com/jorgebucaran/fisher) as plugin manager for Fish
@@ -30,8 +30,16 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 fisher install IlanCosman/tide@v6
 ```
 
+Configure Tide
+
+```fish
+tide configure --auto --style=Classic --prompt_colors='True color' --classic_prompt_color=Dark --show_time='12-hour format' --classic_prompt_separators=Angled --powerline_prompt_heads=Round --powerline_prompt_tails=Round --powerline_prompt_style='Two lines, character and frame' --prompt_connection=Dotted --powerline_right_prompt_frame=No --prompt_connection_andor_frame_color=Lightest --prompt_spacing=Sparse --icons='Many icons' --transient=Yes
+```
+
 ```fish
 set -U tide_node_icon "󰎙"
+set -U tide_git_icon ""
+set -U tide_cmd_duration_decimals 3
 set -U tide_cmd_duration_threshold 0
 ```
 
@@ -255,7 +263,7 @@ rustup target add aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim
   "workbench.productIconTheme": "icons-carbon",
   "terminal.integrated.fontFamily": "'SF Mono', 'JetBrainsMono Nerd Font', Menlo, monospace",
   "terminal.integrated.defaultProfile.osx": "fish",
-  "terminal.external.osxExec": "Tabby.app",
+  "terminal.external.osxExec": "Ghostty.app",
   "editor.fontFamily": "'Jasper Iosevka', 'SF Mono', 'JetBrainsMono Nerd Font', Menlo, monospace",
   "editor.fontLigatures": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -271,347 +279,47 @@ rustup target add aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim
   "files.associations": {
     "*.css": "tailwindcss"
   },
+  // "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  // "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  // "javascript.inlayHints.parameterNames.enabled": "all",
+  // "typescript.inlayHints.parameterNames.enabled": "all",
+  // "javascript.inlayHints.parameterTypes.enabled": true,
+  // "typescript.inlayHints.parameterTypes.enabled": true,
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
   "database-client.autoSync": true,
   "totalTypeScript.hideBasicTips": true,
-  "javascript.experimental.updateImportsOnPaste": true,
-  "typescript.experimental.updateImportsOnPaste": true,
-  "typescript.preferences.preferTypeOnlyAutoImports": true,
   "telemetry.telemetryLevel": "error",
+  "aws.telemetry": false,
   "database-client.telemetry.usesOnlineServices": false,
   "gitlens.telemetry.enabled": false,
-  "postman.telemetry.enabled": false
+  "postman.telemetry.enabled": false,
+  "totalTypeScript.hideAllTips": true
 }
 ```
 
 </details>
 
-### Tabby (`config.yaml`)
+### Ghostty (`config`)
 
 <details>
 
-```yaml
-hotkeys:
-  copy-current-path: []
-  ctrl-c:
-    - Ctrl-C
-  copy:
-    - ⌘-C
-  paste:
-    - ⌘-V
-  clear:
-    - ⌘-K
-  select-all:
-    - ⌘-A
-  zoom-in:
-    - ⌘-=
-    - ⌘-Shift-=
-  zoom-out:
-    - ⌘--
-    - ⌘-Shift--
-  reset-zoom:
-    - ⌘-0
-  home:
-    - ⌘-Left
-    - Home
-  end:
-    - ⌘-Right
-    - End
-  previous-word:
-    - ⌥-Left
-  next-word:
-    - ⌥-Right
-  delete-previous-word:
-    - ⌥-Backspace
-  delete-line:
-    - ⌘-Backspace
-  delete-next-word:
-    - ⌥-Delete
-  search:
-    - ⌘-F
-  pane-focus-all:
-    - ⌘-Shift-I
-  focus-all-tabs:
-    - ⌘-⌥-Shift-I
-  scroll-to-top:
-    - Shift-PageUp
-  scroll-up:
-    - ⌥-PageUp
-  scroll-down:
-    - ⌥-PageDown
-  scroll-to-bottom:
-    - Shift-PageDown
-  restart-telnet-session: []
-  restart-ssh-session: []
-  launch-winscp: []
-  settings-tab: {}
-  settings:
-    - ⌘-,
-  serial:
-    - Alt-K
-  restart-serial-session: []
-  new-tab:
-    - ⌘-T
-  toggle-window:
-    - Ctrl-Space
-  new-window:
-    - ⌘-N
-  profile: {}
-  profile-selectors: {}
-  toggle-fullscreen:
-    - Ctrl+⌘+F
-  close-tab:
-    - ⌘-W
-  reopen-tab:
-    - ⌘-Shift-T
-  toggle-last-tab: []
-  rename-tab:
-    - ⌘-R
-  next-tab:
-    - Ctrl-Tab
-  previous-tab:
-    - Ctrl-Shift-Tab
-  move-tab-left:
-    - ⌘-Shift-Left
-  move-tab-right:
-    - ⌘-Shift-Right
-  rearrange-panes:
-    - Ctrl-Shift
-  tab-1:
-    - ⌘-1
-  tab-2:
-    - ⌘-2
-  tab-3:
-    - ⌘-3
-  tab-4:
-    - ⌘-4
-  tab-5:
-    - ⌘-5
-  tab-6:
-    - ⌘-6
-  tab-7:
-    - ⌘-7
-  tab-8:
-    - ⌘-8
-  tab-9:
-    - ⌘-9
-  tab-10: []
-  duplicate-tab: []
-  restart-tab: []
-  reconnect-tab: []
-  disconnect-tab: []
-  explode-tab:
-    - ⌘-Shift-.
-  combine-tabs:
-    - ⌘-Shift-,
-  tab-11: []
-  tab-12: []
-  tab-13: []
-  tab-14: []
-  tab-15: []
-  tab-16: []
-  tab-17: []
-  tab-18: []
-  tab-19: []
-  tab-20: []
-  split-right:
-    - ⌘-Shift-D
-  split-bottom:
-    - ⌘-D
-  split-left: []
-  split-top: []
-  pane-nav-right:
-    - ⌘-⌥-Right
-  pane-nav-down:
-    - ⌘-⌥-Down
-  pane-nav-up:
-    - ⌘-⌥-Up
-  pane-nav-left:
-    - ⌘-⌥-Left
-  pane-nav-previous:
-    - ⌘-⌥-[
-  pane-nav-next:
-    - ⌘-⌥-]
-  pane-nav-1: []
-  pane-nav-2: []
-  pane-nav-3: []
-  pane-nav-4: []
-  pane-nav-5: []
-  pane-nav-6: []
-  pane-nav-7: []
-  pane-nav-8: []
-  pane-nav-9: []
-  pane-maximize:
-    - ⌘-⌥-Enter
-  close-pane:
-    - ⌘-Shift-W
-  pane-increase-vertical: []
-  pane-decrease-vertical: []
-  pane-increase-horizontal: []
-  pane-decrease-horizontal: []
-  profile-selector:
-    - ⌘-E
-  switch-profile:
-    - ⌘-Shift-E
-  command-selector:
-    - ⌘-Shift-P
-terminal:
-  frontend: xterm-webgl
-  fontSize: 12
-  fontWeight: 400
-  fontWeightBold: 700
-  fallbackFont: JetBrainsMono Nerd Font
-  linePadding: 0
-  bell: "off"
-  bracketedPaste: true
-  background: theme
-  ligatures: true
-  cursor: block
-  cursorBlink: false
-  hideTabIndex: false
-  showTabProfileIcon: false
-  hideCloseButton: false
-  hideTabOptionsButton: false
-  rightClick: menu
-  pasteOnMiddleClick: true
-  copyOnSelect: false
-  copyAsHTML: true
-  scrollOnInput: true
-  altIsMeta: false
-  wordSeparator: ' ()[]{}''"'
-  colorScheme:
-    name: Tabby Default
-    foreground: "#cacaca"
-    background: "#171717"
-    cursor: "#bbbbbb"
-    colors:
-      - "#000000"
-      - "#ff615a"
-      - "#b1e969"
-      - "#ebd99c"
-      - "#5da9f6"
-      - "#e86aff"
-      - "#82fff7"
-      - "#dedacf"
-      - "#313131"
-      - "#f58c80"
-      - "#ddf88f"
-      - "#eee5b2"
-      - "#a5c7ff"
-      - "#ddaaff"
-      - "#b7fff9"
-      - "#ffffff"
-  lightColorScheme:
-    name: Tabby Default Light
-    foreground: "#4d4d4c"
-    background: "#ffffff"
-    cursor: "#4d4d4c"
-    colors:
-      - "#000000"
-      - "#c82829"
-      - "#718c00"
-      - "#eab700"
-      - "#4271ae"
-      - "#8959a8"
-      - "#3e999f"
-      - "#ffffff"
-      - "#000000"
-      - "#c82829"
-      - "#718c00"
-      - "#eab700"
-      - "#4271ae"
-      - "#8959a8"
-      - "#3e999f"
-      - "#ffffff"
-  customColorSchemes: []
-  warnOnMultilinePaste: true
-  searchRegexAlwaysEnabled: false
-  searchOptions:
-    regex: false
-    wholeWord: false
-    caseSensitive: false
-  detectProgress: true
-  scrollbackLines: 25000
-  drawBoldTextInBrightColors: true
-  sixel: true
-  minimumContrastRatio: 4
-  trimWhitespaceOnPaste: true
-  font: SF Mono
-  autoOpen: true
-  useConPTY: true
-  environment: {}
-  setComSpec: false
-  profile: local:opthomebrewbinfish
-  showBuiltinProfiles: true
-  showRecentProfiles: 3
-  paneResizeStep: 0.1
-  focusFollowsMouse: false
-  identification: null
-ssh:
-  warnOnClose: false
-  winSCPPath: null
-  agentType: auto
-  agentPath: null
-  x11Display: null
-  knownHosts: []
-  verifyHostKeys: true
-configSync:
-  configID: null
-  auto: false
-  parts:
-    hotkeys: true
-    appearance: true
-    vault: true
-clickableLinks:
-  modifier: null
-accessibility:
-  animations: true
-appearance:
-  dock: "off"
-  dockScreen: current
-  dockFill: 0.5
-  dockSpace: 1
-  dockHideOnBlur: false
-  dockAlwaysOnTop: true
-  flexTabs: false
-  tabsLocation: top
-  tabsInFullscreen: false
-  cycleTabs: true
-  theme: Follow the color scheme
-  frame: thin
-  css: "/* * { color: blue !important; } */"
-  vibrancyType: blur
-  lastTabClosesWindow: false
-  spaciness: 1
-  colorSchemeMode: dark
-  vibrancy: true
-  opacity: 0.9
-profiles: []
-groups: []
-profileDefaults:
-  ssh:
-    disableDynamicTitle: true
-recoverTabs: true
-enableAnalytics: false
-enableWelcomeTab: false
-electronFlags:
-  - - force_discrete_gpu
-    - "0"
-enableAutomaticUpdates: true
-hideTray: false
-version: 7
-vault: null
-encrypted: false
-enableExperimentalFeatures: false
-commandBlacklist: []
-providerBlacklist: []
-profileBlacklist: []
-hacks:
-  disableGPU: false
-  disableVibrancyWhileDragging: false
-  enableFluentBackground: false
-language: null
-defaultQuickConnectProvider: ssh
-pluginBlacklist: []
+```txt
+font-family = SF Mono
+font-size = 12
+theme = Dark Pastel
+minimum-contrast = 3
+cursor-style-blink = false
+background-opacity = 0.9
+background-blur-radius = 3
+command = /opt/homebrew/bin/fish
+window-padding-x = 12
+window-padding-y = 6
+window-inherit-working-directory = true
+window-colorspace = display-p3
+shell-integration-features = no-cursor
+bold-is-bright = true
 ```
 
 </details>
