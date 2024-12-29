@@ -83,6 +83,14 @@ nvm install lts/jod
 set -U nvm_default_version latest
 ```
 
+### <img src="https://cdn.svgporn.com/logos/bun.svg" align=left height="24" alt="node-js" /> [Bun](https://bun.sh) Environment
+
+#### Install Bun
+
+```sh
+curl -fsSL https://bun.sh/install | bash
+```
+
 ### <img src="https://cdn.svgporn.com/logos/python.svg" align=left height="24" alt="python" /> [Python](https://www.python.org) Environment
 
 #### Install [pyenv](https://github.com/pyenv/pyenv)
