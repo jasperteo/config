@@ -6,7 +6,7 @@ Collection of settings and instructions to set up a new **macOS** machine
 
 ## Setting up
 
-### Set up [Homebrew](https://brew.sh) as package manager
+### <img src="https://cdn.svgporn.com/logos/homebrew.svg" align=left height="24" alt="homebrew" /> Set up [Homebrew](https://brew.sh) as package manager
 
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -56,6 +56,12 @@ git config --global user.email "jaspertzj@outlook.sg"
 ```sh
 brew install 1password microsoft-edge@dev firefox@developer-edition raycast macs-fan-control rectangle keka cloudflare-warp iina fastfetch btop
 brew install kekaexternalhelper
+```
+
+### <img src="https://cdn.svgporn.com/logos/docker-icon.svg" align=left height="24" alt="docker" /> [OrbStack](https://orbstack.dev) (Docker Desktop Alternative)
+
+```sh
+brew install orbstack
 ```
 
 ## Environment configs
