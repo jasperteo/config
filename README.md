@@ -30,7 +30,7 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 fisher install IlanCosman/tide@v6
 ```
 
-Configure Tide
+#### Configure Tide
 
 ```fish
 tide configure --auto --style=Classic --prompt_colors='True color' --classic_prompt_color=Dark --show_time='12-hour format' --classic_prompt_separators=Angled --powerline_prompt_heads=Round --powerline_prompt_tails=Round --powerline_prompt_style='Two lines, character and frame' --prompt_connection=Dotted --powerline_right_prompt_frame=No --prompt_connection_andor_frame_color=Lightest --prompt_spacing=Sparse --icons='Many icons' --transient=Yes
@@ -43,10 +43,21 @@ set -U tide_cmd_duration_decimals 3
 set -U tide_cmd_duration_threshold 0
 ```
 
-### Install [Visual Studio Code](https://code.visualstudio.com) and [Git](https://git-scm.com)
+### <img src="https://cdn.svgporn.com/logos/visual-studio-code.svg" align=left height="24" alt="visual-studio-code" /> Install [Visual Studio Code](https://code.visualstudio.com)
 
 ```sh
-brew install visual-studio-code git
+brew install visual-studio-code
+```
+
+### <img src="https://cdn.svgporn.com/logos/git-icon" align=left height="24" alt="git" /> Install [Git](https://git-scm.com)
+
+```sh
+brew install git
+```
+
+#### Configure git
+
+```sh
 git config --global user.name "jasperteo"
 git config --global user.email "jaspertzj@outlook.sg"
 ```
@@ -58,7 +69,7 @@ brew install 1password microsoft-edge@dev firefox@developer-edition raycast macs
 brew install kekaexternalhelper
 ```
 
-### <img src="https://cdn.svgporn.com/logos/docker-icon.svg" align=left height="24" alt="docker" /> [OrbStack](https://orbstack.dev) (Docker Desktop Alternative)
+#### <img src="https://cdn.svgporn.com/logos/docker-icon.svg" align=left height="24" alt="docker" /> [OrbStack](https://orbstack.dev) (Docker Desktop Alternative)
 
 ```sh
 brew install orbstack
