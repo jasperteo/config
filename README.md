@@ -161,7 +161,7 @@ brew install rbenv
 
 ```sh
 # Example
-rbrnv install 3.3-dev
+rbenv install 3.3-dev
 ```
 
 #### Set Ruby version
