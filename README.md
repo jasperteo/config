@@ -49,7 +49,7 @@ set -U tide_cmd_duration_threshold 0
 brew install visual-studio-code
 ```
 
-### <img src="https://cdn.svgporn.com/logos/git-icon" align=left height="24" alt="git" /> Install [Git](https://git-scm.com)
+### <img src="https://cdn.svgporn.com/logos/git-icon.svg" align=left height="24" alt="git" /> Install [Git](https://git-scm.com)
 
 ```sh
 brew install git
