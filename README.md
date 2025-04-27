@@ -24,10 +24,10 @@ brew install fish ghostty font-sf-mono
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 ```
 
-### Install [Tide](https://github.com/IlanCosman/tide) as shell prompt with [Fisher](https://github.com/jorgebucaran/fisher)
+### Install [Tide](https://github.com/plttn/tide) as shell prompt with [Fisher](https://github.com/jorgebucaran/fisher)
 
 ```sh
-fisher install IlanCosman/tide@v6
+fisher install plttn/tide@v6
 ```
 
 #### Configure Tide
@@ -411,10 +411,7 @@ const eslintConfig = tseslint.config(
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
-      globals: {
-				...globals.browser,
-				...globals.node,
-			},
+      globals: { ...globals.browser, ...globals.node },
     },
   }
 );
