@@ -379,20 +379,23 @@ export default prettierConfig;
 <details>
 
 ```js
+/* @ts-check */
+
 import { FlatCompat } from "@eslint/eslintrc";
 import eslint from "@eslint/js";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import eslintPluginUnicorn from "eslint-plugin-unicorn";
+import globals from "globals";
 import tseslint from "typescript-eslint";
 
-// for legacy configs
+/* utility to translate legacy eslintrc-style configs into flat configs */
 const compat = new FlatCompat({ baseDirectory: import.meta.dirname });
 
 const eslintConfig = tseslint.config(
   eslint.configs.recommended,
   tseslint.configs.strictTypeChecked,
   tseslint.configs.stylisticTypeChecked,
-  eslintPluginUnicorn.configs["flat/recommended"],
+  eslintPluginUnicorn.configs.recommended,
   {
     plugins: { "simple-import-sort": simpleImportSort },
     rules: {
@@ -408,6 +411,10 @@ const eslintConfig = tseslint.config(
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
+      globals: {
+				...globals.browser,
+				...globals.node,
+			},
     },
   }
 );
