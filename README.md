@@ -38,6 +38,9 @@ tide configure --auto --style=Classic --prompt_colors='True color' --classic_pro
 
 ```fish
 set -U tide_node_icon "󰎙"
+set -U tide_node_color "5FA04E"
+set -U tide_bun_icon ""
+set -U tide_bun_color "FBF0DF"
 set -U tide_git_icon ""
 set -U tide_cmd_duration_decimals 3
 set -U tide_cmd_duration_threshold 0
@@ -286,10 +289,10 @@ rustup target add aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim
   "workbench.colorTheme": "Default Dark Modern",
   "workbench.iconTheme": "catppuccin-mocha",
   "workbench.productIconTheme": "icons-carbon",
-  "terminal.integrated.fontFamily": "'SF Mono', 'JetBrainsMono Nerd Font', Menlo, monospace",
+  "terminal.integrated.fontFamily": "'Maple Mono NF CN', Menlo, monospace",
   "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.external.osxExec": "Ghostty.app",
-  "editor.fontFamily": "'Jasper Iosevka', 'SF Mono', 'JetBrainsMono Nerd Font', Menlo, monospace",
+  "editor.fontFamily": "'Jasper Iosevka', 'Maple Mono NF CN', Menlo, monospace",
   "editor.fontLigatures": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": true,
@@ -316,11 +319,27 @@ rustup target add aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim
   "database-client.autoSync": true,
   "totalTypeScript.hideBasicTips": true,
   "telemetry.telemetryLevel": "error",
-  "aws.telemetry": false,
   "database-client.telemetry.usesOnlineServices": false,
   "gitlens.telemetry.enabled": false,
   "postman.telemetry.enabled": false,
-  "totalTypeScript.hideAllTips": true
+  "totalTypeScript.hideAllTips": true,
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.completionContext.typescript.mode": "on",
+  "github.copilot.chat.editor.temporalContext.enabled": true,
+  "github.copilot.chat.edits.temporalContext.enabled": true,
+  "github.copilot.chat.generateTests.codeLens": true,
+  "github.copilot.chat.languageContext.typescript.enabled": true,
+  "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.chat.languageContext.fix.typescript.enabled": true,
+  "github.copilot.chat.languageContext.inline.typescript.enabled": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "chat.agent.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  }
 }
 ```
 
@@ -331,7 +350,7 @@ rustup target add aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim
 <details>
 
 ```txt
-font-family = SF Mono
+font-family = Maple Mono NF CN
 font-size = 12
 theme = Dark Pastel
 minimum-contrast = 3
