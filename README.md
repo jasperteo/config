@@ -1,5 +1,3 @@
-<!-- markdownlint-disable MD033 -->
-
 # MY CONFIG SHIT
 
 Collection of settings and instructions to set up a new **macOS** machine
