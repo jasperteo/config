@@ -61,7 +61,7 @@ brew install git
 #### Configure git
 
 ```sh
-git config --global user.name "jasperteo"
+git config --global user.name "Jasper 張"
 git config --global user.email "jaspertzj@outlook.sg"
 git config --global core.editor "code --wait"
 ```
