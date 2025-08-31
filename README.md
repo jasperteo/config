@@ -4,6 +4,17 @@ Collection of settings and instructions to set up a new **macOS** machine
 
 ## Setting up
 
+### Set up [macOS](https://macos-defaults.com/)
+
+```sh
+defaults write com.apple.dock "orientation" -string "left" && killall Dock
+defaults write com.apple.dock "tilesize" -int "40" && killall Dock
+defaults write com.apple.dock "show-recents" -bool "false" && killall Dock
+defaults write com.apple.finder "AppleShowAllFiles" -bool "true" && killall Finder
+defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true" && killall Finder
+defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true" && killall Finder
+```
+
 ### <img src="https://cdn.svgporn.com/logos/homebrew.svg" align=left height="24" alt="homebrew" /> Set up [Homebrew](https://brew.sh) as package manager
 
 ```sh
