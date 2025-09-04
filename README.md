@@ -92,25 +92,25 @@ brew install orbstack
 
 ### <img src="https://cdn.svgporn.com/logos/nodejs-icon.svg" align=left height="24" alt="node-js" /> [Node](https://nodejs.org) Environment
 
-#### Install [nvm.fish](https://github.com/jorgebucaran/nvm.fish) with [Fisher](https://github.com/jorgebucaran/fisher)
+#### Install [pnpm](https://pnpm.io/)
 
 ```sh
-fisher install jorgebucaran/nvm.fish
+curl -fsSL https://get.pnpm.io/install.sh | sh -
+```
+
+#### Set up autocomplete
+
+```sh
+pnpm completion fish > ~/.config/fish/completions/pnpm.fish
 ```
 
 #### Install Node versions
 
 ```sh
 # Current
-nvm install latest
+pnpm env use --global latest
 # LTS
-nvm install lts/jod
-```
-
-#### Set a default Node version
-
-```fish
-set -U nvm_default_version latest
+pnpm env use --global lts
 ```
 
 ### <img src="https://cdn.svgporn.com/logos/bun.svg" align=left height="24" alt="node-js" /> [Bun](https://bun.sh) Environment
