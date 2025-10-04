@@ -7,12 +7,13 @@ Collection of settings and instructions to set up a new **macOS** machine
 ### Set up [macOS](https://macos-defaults.com/)
 
 ```sh
-defaults write com.apple.dock "orientation" -string "left" && killall Dock
-defaults write com.apple.dock "tilesize" -int "40" && killall Dock
-defaults write com.apple.dock "show-recents" -bool "false" && killall Dock
-defaults write com.apple.finder "AppleShowAllFiles" -bool "true" && killall Finder
-defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true" && killall Finder
-defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true" && killall Finder
+defaults write com.apple.dock "orientation" -string "left"
+defaults write com.apple.dock "tilesize" -int "40"
+defaults write com.apple.dock "show-recents" -bool "false"
+defaults write com.apple.finder "AppleShowAllFiles" -bool "true"
+defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true"
+defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
+killall Dock && killall Finder
 ```
 
 ### <img src="https://cdn.svgporn.com/logos/homebrew.svg" align=left height="24" alt="homebrew" /> Set up [Homebrew](https://brew.sh) as package manager
@@ -290,71 +291,6 @@ rustup target add aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim
 
 ## Tools configs
 
-### <img src="https://cdn.svgporn.com/logos/visual-studio-code.svg" align=left height="24" alt="visual-studio-code" /> Visual Studio Code (`settings.json`)
-
-<details>
-
-```jsonc
-{
-  "workbench.colorTheme": "Default Dark Modern",
-  "workbench.iconTheme": "catppuccin-mocha",
-  "workbench.productIconTheme": "icons-carbon",
-  "terminal.integrated.fontFamily": "'Maple Mono NF CN', Menlo, monospace",
-  "terminal.integrated.defaultProfile.osx": "fish",
-  "terminal.external.osxExec": "Ghostty.app",
-  "editor.fontFamily": "'Jasper Iosevka', 'Maple Mono NF CN', Menlo, monospace",
-  "editor.fontLigatures": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  "editor.linkedEditing": true,
-  "editor.quickSuggestions": {
-    "comments": "on",
-    "strings": "on"
-  },
-  "editor.tabCompletion": "on",
-  "editor.tabSize": 2,
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
-  // "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-  // "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-  // "javascript.inlayHints.parameterNames.enabled": "all",
-  // "typescript.inlayHints.parameterNames.enabled": "all",
-  // "javascript.inlayHints.parameterTypes.enabled": true,
-  // "typescript.inlayHints.parameterTypes.enabled": true,
-  "javascript.preferences.importModuleSpecifier": "non-relative",
-  "typescript.preferences.importModuleSpecifier": "non-relative",
-  "typescript.preferences.preferTypeOnlyAutoImports": true,
-  "database-client.autoSync": true,
-  "totalTypeScript.hideBasicTips": true,
-  "telemetry.telemetryLevel": "error",
-  "database-client.telemetry.usesOnlineServices": false,
-  "gitlens.telemetry.enabled": false,
-  "postman.telemetry.enabled": false,
-  "totalTypeScript.hideAllTips": true,
-  "github.copilot.chat.codesearch.enabled": true,
-  "github.copilot.chat.completionContext.typescript.mode": "on",
-  "github.copilot.chat.editor.temporalContext.enabled": true,
-  "github.copilot.chat.edits.temporalContext.enabled": true,
-  "github.copilot.chat.generateTests.codeLens": true,
-  "github.copilot.chat.languageContext.typescript.enabled": true,
-  "github.copilot.chat.agent.thinkingTool": true,
-  "github.copilot.chat.languageContext.fix.typescript.enabled": true,
-  "github.copilot.chat.languageContext.inline.typescript.enabled": true,
-  "github.copilot.nextEditSuggestions.enabled": true,
-  "chat.agent.enabled": true,
-  "github.copilot.enable": {
-    "*": true,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
-  }
-}
-```
-
-</details>
-
 ### Ghostty (`config`)
 
 <details>
@@ -373,6 +309,7 @@ window-inherit-working-directory = true
 window-colorspace = display-p3
 shell-integration-features = no-cursor
 bold-is-bright = true
+macos-icon = xray
 ```
 
 </details>
@@ -384,10 +321,12 @@ bold-is-bright = true
 <details>
 
 ```js
+// @ts-check
+
 /** @type {import("prettier").Config} */
 const prettierConfig = {
   // tailwindFunctions: ["cn", "cva"],
-  // plugins: ["prettier-plugin-tailwindcss"],
+  // plugins: ["@prettier/plugin-oxc", "prettier-plugin-tailwindcss"],
   trailingComma: "es5",
   tabWidth: 2,
   semi: true,
@@ -402,44 +341,75 @@ export default prettierConfig;
 
 </details>
 
-### <img src="https://cdn.svgporn.com/logos/eslint.svg" align=left height="24" alt="eslint" /> ESLint (`eslint.config.js`)
+### <img src="https://cdn.svgporn.com/logos/eslint.svg" align=left height="24" alt="eslint" /> ESLint (`eslint.config.ts`)
 
 <details>
 
-```js
-/* @ts-check */
+```ts
+import path from "node:path";
 
-import { FlatCompat } from "@eslint/eslintrc";
+import { includeIgnoreFile } from "@eslint/compat";
 import eslint from "@eslint/js";
+import { defineConfig, globalIgnores } from "eslint/config";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import eslintPluginUnicorn from "eslint-plugin-unicorn";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
-/* utility to translate legacy eslintrc-style configs into flat configs */
-const compat = new FlatCompat({ baseDirectory: import.meta.dirname });
+const gitignorePath = path.join(import.meta.dirname, ".gitignore");
 
-const eslintConfig = tseslint.config(
-  eslint.configs.recommended,
-  tseslint.configs.strictTypeChecked,
-  tseslint.configs.stylisticTypeChecked,
-  eslintPluginUnicorn.configs.recommended,
+const eslintConfig = defineConfig(
+  [
+    eslint.configs.recommended,
+    tseslint.configs.strictTypeChecked,
+    tseslint.configs.stylisticTypeChecked,
+    eslintPluginUnicorn.configs.recommended,
+    globalIgnores([
+      /* List of ignored files */
+    ]),
+    includeIgnoreFile(gitignorePath),
+    {
+      plugins: { "simple-import-sort": simpleImportSort },
+      rules: {
+        "simple-import-sort/imports": "warn",
+        "simple-import-sort/exports": "warn",
+      },
+    },
+  ],
   {
-    plugins: { "simple-import-sort": simpleImportSort },
     rules: {
-      "simple-import-sort/imports": "error",
-      "simple-import-sort/exports": "error",
+      "@typescript-eslint/no-import-type-side-effects": "error",
       "@typescript-eslint/consistent-type-imports": "error",
       "@typescript-eslint/consistent-type-exports": "error",
       "@typescript-eslint/consistent-type-definitions": ["error", "type"],
       "unicorn/better-regex": "warn",
+      "unicorn/prevent-abbreviations": [
+        "warn",
+        {
+          allowList: {
+            // Env: true,
+            // env: true,
+            // Dev: true,
+            // dev: true,
+            // Props: true,
+            // props: true,
+            // ref: true,
+            // Ref: true,
+            // utils: true,
+          },
+        },
+      ],
     },
     languageOptions: {
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
-      globals: { ...globals.browser, ...globals.node },
+      /* An object specifying additional objects that should be added to the global scope during linting. */
+      globals: {
+        // ...globals.browser,
+        // ...globals.node,
+      },
     },
   }
 );
