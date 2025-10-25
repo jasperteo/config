@@ -37,7 +37,7 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 ### Install [Tide](https://github.com/IlanCosman/tide) as shell prompt with [Fisher](https://github.com/jorgebucaran/fisher)
 
 ```sh
-fisher install IlanCosman/tide@v6
+fisher install IlanCosman/tide
 ```
 
 #### Configure Tide
@@ -74,6 +74,7 @@ brew install git
 git config --global user.name "Jasper 張"
 git config --global user.email "jaspertzj@outlook.sg"
 git config --global core.editor "code --wait"
+git config --global rebase.ff only
 ```
 
 ### Install other software
