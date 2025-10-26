@@ -56,6 +56,21 @@ set -U tide_cmd_duration_decimals 3
 set -U tide_cmd_duration_threshold 0
 ```
 
+### Install [Catppuccin](https://github.com/catppuccin/fish) as theme
+
+```sh
+fisher install catppuccin/fish
+```
+
+#### Set theme
+
+```fish
+fish_config theme save "Catppuccin Latte"
+fish_config theme save "Catppuccin Frappe"
+fish_config theme save "Catppuccin Macchiato"
+fish_config theme save "Catppuccin Mocha"
+```
+
 ### <img src="https://cdn.svgporn.com/logos/visual-studio-code.svg" align=left height="24" alt="visual-studio-code" /> Install [Visual Studio Code](https://code.visualstudio.com)
 
 ```sh
