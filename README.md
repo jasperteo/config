@@ -328,7 +328,7 @@ rustup target add aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim
 ```txt
 font-family = Maple Mono NF CN
 font-size = 12
-theme = Dimidium
+theme = IBM 5153 CGA (Black)
 cursor-style-blink = false
 background-opacity = 0.9
 background-blur-radius = 3
