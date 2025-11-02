@@ -121,6 +121,13 @@ curl -fsSL https://get.pnpm.io/install.sh | sh -
 pnpm completion fish > ~/.config/fish/completions/pnpm.fish
 ```
 
+#### Set up shell environment
+
+```fish
+set -Ux PNPM_HOME $HOME/Library/pnpm
+fish_add_path $PNPM_HOME
+```
+
 #### Install Node versions
 
 ```sh
@@ -136,6 +143,13 @@ pnpm env use --global lts
 
 ```sh
 curl -fsSL https://bun.sh/install | bash
+```
+
+#### Set up shell environment
+
+```fish
+set -Ux BUN_INSTALL $HOME/.bun
+fish_add_path $BUN_INSTALL/bin
 ```
 
 ### <img src="https://cdn.svgporn.com/logos/python.svg" align=left height="24" alt="python" /> [Python](https://www.python.org) Environment
