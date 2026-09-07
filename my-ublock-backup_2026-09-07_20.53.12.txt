@@ -1,6 +1,6 @@
 {
-  "timeStamp": 1771670154170,
-  "version": "1.69.0",
+  "timeStamp": 1788785592202,
+  "version": "1.74.0",
   "userSettings": {
     "advancedUserEnabled": true,
     "externalLists": "https://filters.adtidy.org/extension/ublock/filters/3.txt\nhttps://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters/blob/raw?file=bpc-paywall-filter.txt\nhttps://raw.githubusercontent.com/DandelionSprout/adfilt/master/BrowseWebsitesWithoutLoggingIn.txt\nhttps://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.mini.txt\nhttps://raw.githubusercontent.com/iam-py-test/uBlock-combo/main/list.txt\nhttps://raw.githubusercontent.com/liamengland1/miscfilters/master/antipaywall.txt",
