@@ -21,7 +21,7 @@ defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE d MMM HH:mm
 killall Dock && killall Finder
 ```
 
-### <img src="https://svgl.app/library/homebrew.svg" align=left height="32" alt="homebrew" /> Set up [Homebrew](https://brew.sh) as package manager
+### <img src="https://svgl.app/library/homebrew.svg" align=left height="24" alt="homebrew" /> Set up [Homebrew](https://brew.sh) as package manager
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -73,13 +73,13 @@ fisher install catppuccin/fish
 fish_config theme choose catppuccin-mocha
 ```
 
-### <img src="https://svgl.app/library/vscode.svg" align=left height="32" alt="visual-studio-code" /> Install [Visual Studio Code](https://code.visualstudio.com)
+### <img src="https://svgl.app/library/vscode.svg" align=left height="24" alt="visual-studio-code" /> Install [Visual Studio Code](https://code.visualstudio.com)
 
 ```bash
 brew install visual-studio-code
 ```
 
-### <img src="https://svgl.app/library/git.svg" align=left height="32" alt="git" /> Install [Git](https://git-scm.com)
+### <img src="https://svgl.app/library/git.svg" align=left height="24" alt="git" /> Install [Git](https://git-scm.com)
 
 ```bash
 brew install git
@@ -101,7 +101,7 @@ brew install 1password microsoft-edge@dev firefox@developer-edition raycast macs
 brew install kekaexternalhelper
 ```
 
-#### <img src="https://svgl.app/library/docker.svg" align=left height="32" alt="docker" /> [OrbStack](https://orbstack.dev) (Docker Desktop Alternative)
+#### <img src="https://svgl.app/library/docker.svg" align=left height="24" alt="docker" /> [OrbStack](https://orbstack.dev) (Docker Desktop Alternative)
 
 ```bash
 brew install orbstack
@@ -109,13 +109,13 @@ brew install orbstack
 
 ## Environment configs
 
-### <img src="https://svgl.app/library/pnpm_dark.svg" align=left height="32" alt="pnpm" /> [pnpm](https://pnpm.io/) Environment
+### <img src="https://svgl.app/library/pnpm_dark.svg" align=left height="24" alt="pnpm" /> [pnpm](https://pnpm.io/) Environment
 
 ```bash
 curl -fsSL https://get.pnpm.io/install.sh | sh -
 ```
 
-#### <img src="https://svgl.app/library/nodejs.svg" align=left height="32" alt="node" /> Install [Node](https://nodejs.org/) versions
+#### <img src="https://svgl.app/library/nodejs.svg" align=left height="24" alt="node" /> Install [Node](https://nodejs.org/) versions
 
 ```bash
 # Current
@@ -124,13 +124,13 @@ pnpm runtime set node latest -g
 pnpm runtime set node lts -g
 ```
 
-#### <img src="https://svgl.app/library/deno_dark.svg" align=left height="32" alt="deno" /> Install [Deno](https://deno.com/)
+#### <img src="https://svgl.app/library/deno_dark.svg" align=left height="24" alt="deno" /> Install [Deno](https://deno.com/)
 
 ```bash
 pnpm runtime set deno latest -g
 ```
 
-#### <img src="https://svgl.app/library/bun.svg" align=left height="32" alt="bun" /> Install [Bun](https://bun.sh/)
+#### <img src="https://svgl.app/library/bun.svg" align=left height="24" alt="bun" /> Install [Bun](https://bun.sh/)
 
 ```bash
 pnpm runtime set bun latest -g
@@ -138,7 +138,7 @@ pnpm runtime set bun latest -g
 
 ## Tools configs
 
-### <img src="https://svgl.app/library/ghostty.svg" align=left height="32" alt="ghostty" /> [Ghostty](https://ghostty.org/) (`config`)
+### <img src="https://svgl.app/library/ghostty.svg" align=left height="24" alt="ghostty" /> [Ghostty](https://ghostty.org/) (`config`)
 
 <details>
 
