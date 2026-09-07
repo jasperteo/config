@@ -10,33 +10,38 @@ Collection of settings and instructions to set up a new **macOS** machine
 defaults write com.apple.dock "orientation" -string "left"
 defaults write com.apple.dock "tilesize" -int "40"
 defaults write com.apple.dock "show-recents" -bool "false"
-defaults write com.apple.finder "AppleShowAllFiles" -bool "true"
 defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true"
+defaults write com.apple.finder "AppleShowAllFiles" -bool "true"
+defaults write com.apple.finder "ShowPathbar" -bool "true"
 defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
+defaults write com.apple.universalaccess "showWindowTitlebarIcons" -bool "true"
+defaults write com.apple.finder "ShowStatusBar" -bool "true"
+defaults write com.apple.menuextra.clock "FlashDateSeparators" -bool "true"
+defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE d MMM HH:mm:ss\""
 killall Dock && killall Finder
 ```
 
-### <img src="https://cdn.svgporn.com/logos/homebrew.svg" align=left height="24" alt="homebrew" /> Set up [Homebrew](https://brew.sh) as package manager
+### <img src="https://svgl.app/library/homebrew.svg" align=left height="24" alt="homebrew" /> Set up [Homebrew](https://brew.sh) as package manager
 
-```sh
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 ### Install [Fish](https://fishshell.com) and [Ghostty](https://ghostty.org/), then download SF Mono
 
-```sh
+```bash
 brew install fish ghostty font-sf-mono
 ```
 
 ### Set up [Fisher](https://github.com/jorgebucaran/fisher) as plugin manager for Fish
 
-```sh
+```bash
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 ```
 
 ### Install [Tide](https://github.com/IlanCosman/tide) as shell prompt with [Fisher](https://github.com/jorgebucaran/fisher)
 
-```sh
+```bash
 fisher install IlanCosman/tide
 ```
 
@@ -58,34 +63,31 @@ set -U tide_cmd_duration_threshold 0
 
 ### Install [Catppuccin](https://github.com/catppuccin/fish) as theme
 
-```sh
+```bash
 fisher install catppuccin/fish
 ```
 
 #### Set theme
 
 ```fish
-fish_config theme save "Catppuccin Latte"
-fish_config theme save "Catppuccin Frappe"
-fish_config theme save "Catppuccin Macchiato"
-fish_config theme save "Catppuccin Mocha"
+fish_config theme choose catppuccin-mocha
 ```
 
-### <img src="https://cdn.svgporn.com/logos/visual-studio-code.svg" align=left height="24" alt="visual-studio-code" /> Install [Visual Studio Code](https://code.visualstudio.com)
+### <img src="https://svgl.app/library/vscode.svg" align=left height="24" alt="visual-studio-code" /> Install [Visual Studio Code](https://code.visualstudio.com)
 
-```sh
+```bash
 brew install visual-studio-code
 ```
 
-### <img src="https://cdn.svgporn.com/logos/git-icon.svg" align=left height="24" alt="git" /> Install [Git](https://git-scm.com)
+### <img src="https://svgl.app/library/git.svg" align=left height="24" alt="git" /> Install [Git](https://git-scm.com)
 
-```sh
+```bash
 brew install git
 ```
 
 #### Configure git
 
-```sh
+```bash
 git config --global user.name "Jasper 張"
 git config --global user.email "jaspertzj@outlook.sg"
 git config --global core.editor "code --wait"
@@ -94,234 +96,49 @@ git config --global rebase.ff only
 
 ### Install other software
 
-```sh
+```bash
 brew install 1password microsoft-edge@dev firefox@developer-edition raycast macs-fan-control rectangle keka cloudflare-warp iina fastfetch btop
 brew install kekaexternalhelper
 ```
 
-#### <img src="https://cdn.svgporn.com/logos/docker-icon.svg" align=left height="24" alt="docker" /> [OrbStack](https://orbstack.dev) (Docker Desktop Alternative)
+#### <img src="https://svgl.app/library/docker.svg" align=left height="24" alt="docker" /> [OrbStack](https://orbstack.dev) (Docker Desktop Alternative)
 
-```sh
+```bash
 brew install orbstack
 ```
 
 ## Environment configs
 
-### <img src="https://cdn.svgporn.com/logos/nodejs-icon.svg" align=left height="24" alt="node-js" /> [Node](https://nodejs.org) Environment
+### <img src="https://svgl.app/library/pnpm_dark.svg" align=left height="24" alt="pnpm" /> [pnpm](https://pnpm.io/) Environment
 
-#### Install [pnpm](https://pnpm.io/)
-
-```sh
+```bash
 curl -fsSL https://get.pnpm.io/install.sh | sh -
 ```
 
-#### Set up autocomplete
+#### <img src="https://svgl.app/library/nodejs.svg" align=left height="24" alt="node" /> Install [Node](https://nodejs.org/) versions
 
-```sh
-pnpm completion fish > ~/.config/fish/completions/pnpm.fish
-```
-
-#### Set up shell environment
-
-```fish
-set -Ux PNPM_HOME $HOME/Library/pnpm
-fish_add_path $PNPM_HOME
-```
-
-#### Install Node versions
-
-```sh
+```bash
 # Current
-pnpm env use --global latest
+pnpm runtime set node latest -g
 # LTS
-pnpm env use --global lts
+pnpm runtime set node lts -g
 ```
 
-### <img src="https://cdn.svgporn.com/logos/bun.svg" align=left height="24" alt="node-js" /> [Bun](https://bun.sh) Environment
+#### <img src="https://svgl.app/library/deno_dark.svg" align=left height="24" alt="deno" /> Install [Deno](https://deno.com/)
 
-#### Install Bun
-
-```sh
-curl -fsSL https://bun.sh/install | bash
+```bash
+pnpm runtime set deno latest -g
 ```
 
-#### Set up shell environment
+#### <img src="https://svgl.app/library/bun.svg" align=left height="24" alt="bun" /> Install [Bun](https://bun.sh/)
 
-```fish
-set -Ux BUN_INSTALL $HOME/.bun
-fish_add_path $BUN_INSTALL/bin
-```
-
-### <img src="https://cdn.svgporn.com/logos/python.svg" align=left height="24" alt="python" /> [Python](https://www.python.org) Environment
-
-#### Install [pyenv](https://github.com/pyenv/pyenv)
-
-```sh
-brew install pyenv
-```
-
-#### Set up shell environment
-
-```fish
-set -Ux PYENV_ROOT $HOME/.pyenv
-fish_add_path $PYENV_ROOT/bin
-```
-
-> [!IMPORTANT]
-> Add to `~/.config/fish/config.fish`
-
-```fish
-pyenv init - | source
-```
-
-#### Install Python versions
-
-```sh
-# Example
-pyenv install 3.13-dev
-```
-
-#### Set Python version
-
-```sh
-# Set Global Default
-pyenv global 3.13-dev
-# Project Specific
-pyenv local 3.13-dev
-# Virtual Environment
-python3 -m venv .venv
-source .venv/bin/activate.fish
-```
-
-### <img src="https://cdn.svgporn.com/logos/ruby.svg" align=left height="24" alt="ruby" /> [Ruby](https://www.ruby-lang.org) Environment
-
-#### Install [rbenv](https://github.com/rbenv/rbenv)
-
-```sh
-brew install rbenv
-```
-
-#### Install Ruby versions
-
-```sh
-# Example
-rbenv install 3.3-dev
-```
-
-#### Set Ruby version
-
-```sh
-# Set Global Default
-rbenv global 3.3-dev
-# Project Specific
-rbenv local 3.3-dev
-```
-
-#### Install Cocoapods
-
-```sh
-gem install cocoapods
-```
-
-### <img src="https://cdn.svgporn.com/logos/rust.svg" align=left height="24" alt="rust" /> [Rust](https://www.rust-lang.org) Environment
-
-#### Install [rustup](https://github.com/rust-lang/rustup)
-
-```sh
-brew install rustup
-rustup default stable
-```
-
-### <img src="https://cdn.svgporn.com/logos/react.svg" align=left height="24" alt="react" icon="react" /> [React Native](https://reactnative.dev) Environment
-
-#### Install [Xcode](https://developer.apple.com/xcode), [Android Studio](https://developer.android.com/studio), [Watchman](https://github.com/facebook/watchman) and Azul Zulu Java
-
-> [!NOTE]
-> Use App Store to install **Xcode**
-
-```sh
-brew install watchman zulu@17 android-studio
-```
-
-#### Set up Android Studio for React Native Development
-
-Use the SDK Manager in Android Studio to install the following SDK Tools:
-
-- Android SDK Platform
-- Android SDK Platform-Tools
-- Android SDK Build-Tools
-- Android Emulator
-
-> [!IMPORTANT]
-> Add to `~/.config/fish/config.fish`
-
-```fish
-set -x JAVA_HOME_REACT_NATIVE /Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
-set -x ANDROID_HOME $HOME/Library/Android/sdk
-set -x PATH $PATH $ANDROID_HOME/emulator
-set -x PATH $PATH $ANDROID_HOME/platform-tools
-```
-
-> [!WARNING]
-> Verify the path of `ANDROID_HOME` is correct
-
-#### Set `JAVA_HOME` environment variable for React Native
-
-```fish
-set -x JAVA_HOME $JAVA_HOME_REACT_NATIVE
-```
-
-### <img src="https://cdn.svgporn.com/logos/tauri.svg" align=left height="24" alt="react" icon="react" /> [Tauri](https://tauri.app/) Environment
-
-#### Install [Xcode](https://developer.apple.com/xcode) and [Android Studio](https://developer.android.com/studio)
-
-> [!NOTE]
-> Use App Store to install **Xcode**
-
-```sh
-brew install android-studio
-```
-
-#### Set up Android Studio for Tauri Development
-
-Use the SDK Manager in Android Studio to install the following SDK Tools:
-
-- Android SDK Platform
-- Android SDK Platform-Tools
-- Android SDK Build-Tools
-- Android SDK Command-line Tools
-- NDK (Side by side)
-
-> [!IMPORTANT]
-> Add to `~/.config/fish/config.fish`
-
-```fish
-set -x JAVA_HOME_TAURI "/Applications/Android Studio.app/Contents/jbr/Contents/Home"
-set -x ANDROID_HOME "$HOME/Library/Android/sdk"
-set -x NDK_HOME "$ANDROID_HOME/ndk/(ls -1 $ANDROID_HOME/ndk)"
-```
-
-> [!WARNING]
-> Verify the path of `ANDROID_HOME` is correct
-
-#### Set `JAVA_HOME` environment variable for Tauri
-
-```fish
-set -x JAVA_HOME $JAVA_HOME_TAURI
-```
-
-#### Add Android and iOS targets
-
-```sh
-# Android
-rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android
-# iOS
-rustup target add aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim
+```bash
+pnpm runtime set bun latest -g
 ```
 
 ## Tools configs
 
-### Ghostty (`config`)
+### <img src="https://svgl.app/library/ghostty.svg" align=left height="24" alt="ghostty" /> [Ghostty](https://ghostty.org/) (`config`)
 
 <details>
 
@@ -344,107 +161,21 @@ macos-icon = xray
 
 </details>
 
-## Project configs
-
-### <img src="https://cdn.svgporn.com/logos/prettier.svg" align=left height="24" alt="prettier" /> Prettier (`prettier.config.js`)
+### [Fish](https://fishshell.com) (`config.fish`)
 
 <details>
 
-```js
-// @ts-check
+```fish
+# pnpm
+set -gx PNPM_HOME $HOME/Library/pnpm
+fish_add_path -g $PNPM_HOME
 
-/** @type {import("prettier").Config} */
-const prettierConfig = {
-  // tailwindFunctions: ["cn", "cva"],
-  // plugins: ["@prettier/plugin-oxc", "prettier-plugin-tailwindcss"],
-  trailingComma: "es5",
-  tabWidth: 2,
-  semi: true,
-  singleQuote: false,
-  useTabs: true,
-  bracketSpacing: true,
-  printWidth: 80,
-};
-
-export default prettierConfig;
-```
-
-</details>
-
-### <img src="https://cdn.svgporn.com/logos/eslint.svg" align=left height="24" alt="eslint" /> ESLint (`eslint.config.ts`)
-
-<details>
-
-```ts
-import path from "node:path";
-
-import { includeIgnoreFile } from "@eslint/compat";
-import eslint from "@eslint/js";
-import { defineConfig, globalIgnores } from "eslint/config";
-import simpleImportSort from "eslint-plugin-simple-import-sort";
-import eslintPluginUnicorn from "eslint-plugin-unicorn";
-import globals from "globals";
-import tseslint from "typescript-eslint";
-
-const gitignorePath = path.join(import.meta.dirname, ".gitignore");
-
-const eslintConfig = defineConfig(
-  [
-    eslint.configs.recommended,
-    tseslint.configs.strictTypeChecked,
-    tseslint.configs.stylisticTypeChecked,
-    eslintPluginUnicorn.configs.recommended,
-    globalIgnores([
-      /* List of ignored files */
-    ]),
-    includeIgnoreFile(gitignorePath),
-    {
-      plugins: { "simple-import-sort": simpleImportSort },
-      rules: {
-        "simple-import-sort/imports": "warn",
-        "simple-import-sort/exports": "warn",
-      },
-    },
-  ],
-  {
-    rules: {
-      "@typescript-eslint/no-import-type-side-effects": "error",
-      "@typescript-eslint/consistent-type-imports": "error",
-      "@typescript-eslint/consistent-type-exports": "error",
-      "@typescript-eslint/consistent-type-definitions": ["error", "type"],
-      "unicorn/better-regex": "warn",
-      "unicorn/prevent-abbreviations": [
-        "warn",
-        {
-          allowList: {
-            // Env: true,
-            // env: true,
-            // Dev: true,
-            // dev: true,
-            // Props: true,
-            // props: true,
-            // ref: true,
-            // Ref: true,
-            // utils: true,
-          },
-        },
-      ],
-    },
-    languageOptions: {
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
-      /* An object specifying additional objects that should be added to the global scope during linting. */
-      globals: {
-        // ...globals.browser,
-        // ...globals.node,
-      },
-    },
-  }
-);
-
-export default eslintConfig;
+if status is-interactive
+    # Mole shell completion
+    if type -q mole
+        mole completion fish | source
+    end
+end
 ```
 
 </details>
