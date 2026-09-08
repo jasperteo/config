@@ -6,7 +6,7 @@ Collection of settings and instructions to set up a new **macOS** machine
 
 ### Set up [macOS](https://macos-defaults.com/)
 
-```sh
+```bash
 defaults write com.apple.dock "orientation" -string "left"
 defaults write com.apple.dock "tilesize" -int "40"
 defaults write com.apple.dock "show-recents" -bool "false"
@@ -21,7 +21,7 @@ defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE d MMM HH:mm
 killall Dock && killall Finder
 ```
 
-### <img src="https://svgl.app/library/homebrew.svg" align=left height="24" alt="homebrew" /> Set up [Homebrew](https://brew.sh) as package manager
+### <img src=".github/assets/homebrew.svg" height="20" alt="homebrew"> Set up [Homebrew](https://brew.sh) as package manager
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -73,13 +73,13 @@ fisher install catppuccin/fish
 fish_config theme choose catppuccin-mocha
 ```
 
-### <img src="https://svgl.app/library/vscode.svg" align=left height="24" alt="visual-studio-code" /> Install [Visual Studio Code](https://code.visualstudio.com)
+### <img src=".github/assets/vscode.svg" height="20" alt="visual-studio-code"> Install [Visual Studio Code](https://code.visualstudio.com)
 
 ```bash
 brew install visual-studio-code
 ```
 
-### <img src="https://svgl.app/library/git.svg" align=left height="24" alt="git" /> Install [Git](https://git-scm.com)
+### <img src=".github/assets/git.svg" height="20" alt="git"> Install [Git](https://git-scm.com)
 
 ```bash
 brew install git
@@ -97,11 +97,11 @@ git config --global rebase.ff only
 ### Install other software
 
 ```bash
-brew install 1password microsoft-edge@dev firefox@developer-edition raycast macs-fan-control rectangle keka cloudflare-warp iina fastfetch btop
+brew install 1password microsoft-edge@dev google-chrome@dev zen raycast mole rectangle iina macs-fan-control fastfetch btop keka
 brew install kekaexternalhelper
 ```
 
-#### <img src="https://svgl.app/library/docker.svg" align=left height="24" alt="docker" /> [OrbStack](https://orbstack.dev) (Docker Desktop Alternative)
+#### <img src=".github/assets/docker.svg" height="20" alt="docker"> [OrbStack](https://orbstack.dev) (Docker Desktop Alternative)
 
 ```bash
 brew install orbstack
@@ -109,13 +109,13 @@ brew install orbstack
 
 ## Environment configs
 
-### <img src="https://svgl.app/library/pnpm_dark.svg" align=left height="24" alt="pnpm" /> [pnpm](https://pnpm.io/) Environment
+### <picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/pnpm_dark.svg"><img src=".github/assets/pnpm.svg" height="20" alt="pnpm"></picture> [pnpm](https://pnpm.io/) Environment
 
 ```bash
 curl -fsSL https://get.pnpm.io/install.sh | sh -
 ```
 
-#### <img src="https://svgl.app/library/nodejs.svg" align=left height="24" alt="node" /> Install [Node](https://nodejs.org/) versions
+#### <img src=".github/assets/nodejs.svg" height="20" alt="node"> Install [Node](https://nodejs.org/) versions
 
 ```bash
 # Current
@@ -124,13 +124,13 @@ pnpm runtime set node latest -g
 pnpm runtime set node lts -g
 ```
 
-#### <img src="https://svgl.app/library/deno_dark.svg" align=left height="24" alt="deno" /> Install [Deno](https://deno.com/)
+#### <picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/deno_dark.svg"><img src=".github/assets/deno.svg" height="20" alt="deno"></picture> Install [Deno](https://deno.com/)
 
 ```bash
 pnpm runtime set deno latest -g
 ```
 
-#### <img src="https://svgl.app/library/bun.svg" align=left height="24" alt="bun" /> Install [Bun](https://bun.sh/)
+#### <img src=".github/assets/bun.svg" height="20" alt="bun"> Install [Bun](https://bun.sh/)
 
 ```bash
 pnpm runtime set bun latest -g
@@ -138,7 +138,7 @@ pnpm runtime set bun latest -g
 
 ## Tools configs
 
-### <img src="https://svgl.app/library/ghostty.svg" align=left height="24" alt="ghostty" /> [Ghostty](https://ghostty.org/) (`config`)
+### <img src=".github/assets/ghostty.svg" height="20" alt="ghostty"> [Ghostty](https://ghostty.org/) (`config`)
 
 <details>
 
