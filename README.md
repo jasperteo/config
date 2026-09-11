@@ -179,3 +179,10 @@ end
 ```
 
 </details>
+
+## List of Skills
+
+- [ax](https://ax.yusuke.run/)
+- [Cursor Plugins](https://www.skills.sh/cursor/plugins)
+- [Antfu Skills](https://github.com/antfu/skills)
+- [Shadcn Improve](https://github.com/shadcn/improve)
